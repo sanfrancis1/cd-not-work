@@ -1,23 +1,17 @@
 package com.concretedetailer.model;
 
-import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.*;
+public enum Role {
+    USER("User"),
+    ADMIN("Admin");
 
-@Setter
-@Getter
-@Entity
-@Table(name = "roles")
-public class Role {
+    private final String value;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Role(String value) {
+        this.value = value;
+    }
 
-    @Column(length = 60)
-    private String name;
-    
-    @Column(length = 60)
-    private boolean active;
+    public String getValue() {
+        return value;
+    }
 }
